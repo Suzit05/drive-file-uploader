@@ -9,5 +9,19 @@ const fileSchema = new mongoose.Schema({
         required: [true, "path is required"]
 
     },
-//yha se start ho jao........
+    originalname: {
+        type: String,
+        required: [true, "Original name is required"]
+    },
+
+    user: {
+        type: mongoose.Schema.Types.ObjectId,  //id
+        ref: "users",   //collection in database
+        required: [true, "User is required"]
+    }
 })
+
+
+const file = mongoose.model("file", fileSchema)
+
+module.exports = file;
